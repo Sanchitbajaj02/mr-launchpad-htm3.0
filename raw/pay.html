@@ -20,7 +20,7 @@
         }
 
         .title {
-        padding: 10px;
+            padding: 10px;
             /* display: flex;
                 flex-direction: column;
                 justify-content: center; */
@@ -128,20 +128,21 @@
             background-color: rgba(255, 0, 0, 0);
             outline: none;
             padding: 10px;
-font-size: 15px;
+            font-size: 15px;
             border: none;
             border-bottom: 2px solid #fff;
             color: #fff;
         }
+
         /* #coin-path {
             border: 2px solid white;
 
         } */
-        #coin-path > img {
+        #coin-path>img {
             /* border: 2px solid white; */
-            height : 300px;
-            width:300px;
-            
+            height: 300px;
+            width: 300px;
+
         }
 
 
@@ -253,24 +254,28 @@ font-size: 15px;
             cursor: pointer;
             /* background-color:#a099ff; */
             background: linear-gradient(-45deg, #fbfbfb, #000000, #05090b, #eef1f1);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
             /* background: rgb(131, 58, 180);
             background: -moz-linear-gradient(309deg, rgba(131, 58, 180, 1) 0%, rgba(200, 42, 18, 0.87718837535014) 64%);
             background: -webkit-linear-gradient(309deg, rgba(131, 58, 180, 1) 0%, rgba(200, 42, 18, 0.87718837535014) 64%);
             background: linear-gradient(309deg, rgba(131, 58, 180, 1) 0%, rgba(200, 42, 18, 0.87718837535014) 64%) */
         }
+
         @keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
         .name {
             margin-top: -6px;
             opacity: 0
@@ -309,25 +314,27 @@ font-size: 15px;
                 opacity: 1
             }
         }
-        #Send_btn{
-            border:2px solid white;
-            background:none;
-            color:white;
-            border-radius:10px;
-            padding:10px;
-        }
-        #Send_btn:hover{
-            background:white;
-            color:black;
 
+        #Send_btn {
+            border: 2px solid white;
+            background: none;
+            color: white;
+            border-radius: 10px;
+            padding: 10px;
         }
 
+        #Send_btn:hover {
+            background: white;
+            color: black;
+
+        }
     </style>
 </head>
 
 <body>
-  
-    <h1 class="title"><span style="color:rgb(201, 12, 12);">Manav Rachna</span> <span style="color:green">Coin</span> </h1>
+
+    <h1 class="title"><span style="color:rgb(201, 12, 12);">Manav Rachna</span> <span style="color:green">Coin</span>
+    </h1>
     <div class="main-box">
         <div class="main">
             <div class="left">
@@ -361,9 +368,9 @@ font-size: 15px;
 
                     </div> -->
                     <!-- </div> -->
-                    <div id = "coin-path">
+                    <div id="coin-path">
                         <img src="plain.gif" alt="Flowers in Chania">
-                        </div>
+                    </div>
                 </div>
                 <div class="bottom">
                     <p style="font-weight: 600">wallet address - <span id="wallet-address"></span></p>
@@ -389,7 +396,7 @@ font-size: 15px;
                             <input type="number" name="amount" id="form-amount" class="input" placeholder="Amount">
                             <br />
                             <br />
-                            <button  type="button" id="Send_btn">Send</button>
+                            <button type="button" id="Send_btn">Send</button>
                         </form>
                     </div>
                 </div>
@@ -400,7 +407,7 @@ font-size: 15px;
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1 px-0 ">
-                            <div class="image"> <img src="outlets/amrakh.jpg" alt="">
+                            <div class="image"> <img src="./amrakh.jpg" alt="">
                                 <div class="overlay">
                                     <!-- <p class="amount">$399</p> -->
                                     <p class="h4">Amrakh</p>
@@ -417,7 +424,7 @@ font-size: 15px;
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1 px-0 ">
-                            <div class="image"> <img src="outlets/chai-garam.jpg" alt="">
+                            <div class="image"> <img src="./chai-garam.jpg" alt="">
                                 <div class="overlay">
                                     <!-- <p class="amount">$399</p> -->
                                     <p class="h4">Chai Garam</p>
@@ -434,7 +441,7 @@ font-size: 15px;
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1 px-0 ">
-                            <div class="image"> <img src="outlets/crunchy-burger.jpg" alt="">
+                            <div class="image"> <img src="./crunchy-burger.jpg" alt="">
                                 <div class="overlay">
                                     <!-- <p class="amount">$399</p> -->
                                     <p class="h4">Crunchy Burger</p>
@@ -451,7 +458,7 @@ font-size: 15px;
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1 px-0 ">
-                            <div class="image"> <img src="outlets/desi-swag.jpg" alt="">
+                            <div class="image"> <img src="./desi-swag.jpg" alt="">
                                 <div class="overlay">
                                     <!-- <p class="amount">$399</p> -->
                                     <p class="h4">Desi Swag</p>
@@ -468,7 +475,7 @@ font-size: 15px;
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1 px-0 ">
-                            <div class="image"> <img src="outlets/dosa-plaza.jpg" alt="">
+                            <div class="image"> <img src="./dosa-plaza.jpg" alt="">
                                 <div class="overlay">
                                     <!-- <p class="amount">$399</p> -->
                                     <p class="h4">Dosa Plaza</p>
@@ -485,7 +492,7 @@ font-size: 15px;
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1 px-0 ">
-                            <div class="image"> <img src="outlets/Hm-cafe.jpg" alt="">
+                            <div class="image"> <img src="./Hm-cafe.jpg" alt="">
                                 <div class="overlay">
                                     <!-- <p class="amount">$399</p> -->
                                     <p class="h4">HM cafe</p>
@@ -502,7 +509,7 @@ font-size: 15px;
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1 px-0 ">
-                            <div class="image"> <img src="outlets/mym.jpg" alt="">
+                            <div class="image"> <img src="./mym.jpg" alt="">
                                 <div class="overlay">
                                     <!-- <p class="amount">$399</p> -->
                                     <p class="h4">#MYM</p>
@@ -519,7 +526,7 @@ font-size: 15px;
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1 px-0 ">
-                            <div class="image"> <img src="outlets/nescafe.jpg" alt="">
+                            <div class="image"> <img src="./nescafe.jpg" alt="">
                                 <div class="overlay">
                                     <!-- <p class="amount">$399</p> -->
                                     <p class="h4">Nescafe</p>
@@ -536,7 +543,7 @@ font-size: 15px;
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-10 offset-md-0 offset-sm-1 px-0 ">
-                            <div class="image"> <img src="outlets/subway.jpg" alt="">
+                            <div class="image"> <img src="./subway.jpg" alt="">
                                 <div class="overlay">
                                     <!-- <p class="amount">$399</p> -->
                                     <p class="h4">Subway</p>

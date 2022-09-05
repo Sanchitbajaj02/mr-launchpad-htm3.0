@@ -6,7 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="https://thebetterindia-english.s3.ap-south-1.amazonaws.com/uploads/2020/06/Manav-rachna-logo.png" />
+    <link rel="shortcut icon"
+        href="https://thebetterindia-english.s3.ap-south-1.amazonaws.com/uploads/2020/06/Manav-rachna-logo.png" />
     <title>Manav Rachna Coin</title>
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
@@ -21,7 +22,7 @@
         }
 
         .title {
-        padding: 10px;
+            padding: 10px;
             /* display: flex;
                 flex-direction: column;
                 justify-content: center; */
@@ -129,20 +130,21 @@
             background-color: rgba(255, 0, 0, 0);
             outline: none;
             padding: 10px;
-font-size: 15px;
+            font-size: 15px;
             border: none;
             border-bottom: 2px solid #fff;
             color: #fff;
         }
+
         /* #coin-path {
             border: 2px solid white;
 
         } */
-        #coin-path > img {
+        #coin-path>img {
             /* border: 2px solid white; */
-            height : 300px;
-            width:300px;
-            
+            height: 300px;
+            width: 300px;
+
         }
 
 
@@ -254,24 +256,28 @@ font-size: 15px;
             cursor: pointer;
             /* background-color:#a099ff; */
             background: linear-gradient(-45deg, #fbfbfb, #000000, #05090b, #eef1f1);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
             /* background: rgb(131, 58, 180);
             background: -moz-linear-gradient(309deg, rgba(131, 58, 180, 1) 0%, rgba(200, 42, 18, 0.87718837535014) 64%);
             background: -webkit-linear-gradient(309deg, rgba(131, 58, 180, 1) 0%, rgba(200, 42, 18, 0.87718837535014) 64%);
             background: linear-gradient(309deg, rgba(131, 58, 180, 1) 0%, rgba(200, 42, 18, 0.87718837535014) 64%) */
         }
+
         @keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
         .name {
             margin-top: -6px;
             opacity: 0
@@ -310,25 +316,27 @@ font-size: 15px;
                 opacity: 1
             }
         }
-        #Send_btn{
-            border:2px solid white;
-            background:none;
-            color:white;
-            border-radius:10px;
-            padding:10px;
-        }
-        #Send_btn:hover{
-            background:white;
-            color:black;
 
+        #Send_btn {
+            border: 2px solid white;
+            background: none;
+            color: white;
+            border-radius: 10px;
+            padding: 10px;
         }
 
+        #Send_btn:hover {
+            background: white;
+            color: black;
+
+        }
     </style>
 </head>
 
 <body>
-  
-    <h1 class="title"><span style="color:rgb(201, 12, 12);">Manav Rachna</span> <span style="color:green">Coin</span> </h1>
+
+    <h1 class="title"><span style="color:rgb(201, 12, 12);">Manav Rachna</span> <span style="color:green">Coin</span>
+    </h1>
     <div class="main-box">
         <div class="main">
             <div class="left">
@@ -362,9 +370,9 @@ font-size: 15px;
 
                     </div> -->
                     <!-- </div> -->
-                    <div id = "coin-path">
+                    <div id="coin-path">
                         <img src="plain.gif" alt="Flowers in Chania">
-                        </div>
+                    </div>
                 </div>
                 <div class="bottom">
                     <p style="font-weight: 600">wallet address - <span id="wallet-address"></span></p>
@@ -390,7 +398,7 @@ font-size: 15px;
                             <input type="number" name="amount" id="form-amount" class="input" placeholder="Amount">
                             <br />
                             <br />
-                            <button   id="Send_btn">Send</button>
+                            <button id="Send_btn">Send</button>
                         </form>
                     </div>
                 </div>
