@@ -1,13 +1,185 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #090909;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.bg-light-black {
+  background-color: #090909;
 }
+
+.bg-dark-gray {
+  background-color: #0e0e0e;
+}
+
+.text-green {
+  color: #94f918;
+}
+
+.text-gray {
+  /* color: #67757c; */
+  color: #8d979c;
+}
+
+.wallet-flex {
+  display: flex;
+  align-items: center;
+}
+
+.wallet-address-user {
+  color: white;
+  font-weight: bold;
+  background-color: #242424;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  font-size: 1.2rem;
+}
+
+.btn-outline-green {
+  color: #7ac821;
+  border-color: #7ac821;
+}
+
+.btn-outline-green:hover {
+  background: #242424 !important;
+  border: solid 1px #94f918 !important;
+  box-shadow: none !important;
+  color: #94f918 !important;
+}
+
+/* 272727 */
+.field-color {
+  background-color: #242424;
+  border: none;
+  outline: none;
+  color: white;
+}
+
+.field-color:active,
+.field-color:focus {
+  background-color: #242424;
+  border: none;
+  outline: none;
+  color: white;
+}
+
+.width-styling {
+  width: 75%;
+  margin: auto;
+}
+
+.padding-class {
+  padding: 2rem 1.5rem;
+}
+
+.padding-class h1 {
+  padding-bottom: 1rem;
+}
+
+@media only screen and (max-width: 769px) {
+  .padding-class {
+    padding: 0.5rem;
+  }
+  .width-styling {
+    width: 100%;
+    margin: auto;
+  }
+}
+
+/* progress bar code starts here */
+.progress-bar {
+  color: #8d979c;
+  margin: auto;
+  padding: 2rem 1.2rem;
+  border-radius: 5px;
+}
+
+.progress {
+  background-color: #272727;
+  border-radius: 50px;
+  border: #7ac821 solid 1px;
+  width: 100%;
+  height: 20%;
+}
+.progress-fill {
+  /* background-color: #7ac821; */
+  background: linear-gradient(to right, #c82134, #94f918);
+  border-radius: 50px;
+  width: 100%;
+}
+
+.progress-top {
+  color: white;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+.progress-line-bars {
+  color: white;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+.progress-top li,
+.progress-line-bars li {
+  list-style: none;
+}
+
+.participants-container {
+  padding: 10px;
+  margin-top: 10px;
+  text-align: center;
+}
+/* progress bar code ends here */
+#copyright {
+  color: #ffffff;
+  background-color: #000;
+  font-size: 14px;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+/* counter css starts */
+
+.countdown-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.countdown-item {
+  color: #7ac821;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  line-height: 30px;
+  margin: 10px;
+  padding-top: 10px;
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.countdown-item span {
+  color: #94f918;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.countdown-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+}
+/* counter css ends */
