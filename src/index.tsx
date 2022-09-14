@@ -12,8 +12,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <MoralisProvider
-    serverUrl={`${process.env.REACT_APP_SERVER_URL_DEV}`}
-    appId={`${process.env.REACT_APP_APP_ID_DEV}`}>
+    serverUrl={`https://mwj2qxb21teu.usemoralis.com:2053/server`}
+    appId={`GQNIEmL10MLNP2etcJFDqe2CIBjuW50g1WxQR6WV`}>
     <BrowserRouter>
       <Router />
     </BrowserRouter>

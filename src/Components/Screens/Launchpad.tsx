@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
-import { DataContext } from "../../Utils/DataContext";
+import React, { useState, useEffect } from "react";
+// import { DataContext } from "../../Utils/DataContext";
 // import CountDown from "../CountDown";
 import {
   fetchCoinPrice,
@@ -10,10 +10,12 @@ import {
 } from "../../Utils/api";
 import { useMoralis, useWeb3Transfer, useChain } from "react-moralis";
 
+import TokenLogo from "../../Assets/mr-token-logo.png";
+
 const wei = 1000000000000000000;
 
 const Launchpad = () => {
-  const context = useContext(DataContext);
+  // const context = useContext(DataContext);
 
   const { authenticate, Moralis, isAuthenticated, logout } = useMoralis();
   const { chainId } = useChain();
@@ -85,7 +87,7 @@ const Launchpad = () => {
   // TODO: the program for login
   const login = async () => {
     if (!isAuthenticated) {
-      await authenticate({
+      authenticate({
         signingMessage: "Welcome to MR Launchpad",
       })
         .then(async function (user) {
@@ -241,7 +243,9 @@ const Launchpad = () => {
   };
   const showCoinBalanceInCurrentChain = () => {
     if (coinData?.chainName === "" && coinData?.userBalance === -1) {
-      return <span className="text-danger">chain not selected</span>;
+      return (
+        <span className="font-semibold text-red-600">chain not selected</span>
+      );
     } else {
       if (coinData?.userBalance === 0) {
         return <span>0</span>;
@@ -253,15 +257,10 @@ const Launchpad = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark-gray">
-        <div className="container">
+      <nav className="max-w-screen-xl mx-auto py-4">
+        <div className="flex justify-between items-center">
           <a className="navbar-brand" href="/">
-            <img
-              src={`${process.env.PUBLIC_URL}/assets/favicon.png`}
-              alt="a4r logo"
-              className="img-fluid"
-              width="70"
-            />
+            <img src={TokenLogo} alt="MR token" width="70" />
           </a>
 
           <div className="wallet-flex ms-auto">
@@ -274,11 +273,15 @@ const Launchpad = () => {
             ) : null}
             <div>
               {isAuthenticated ? (
-                <button onClick={logOut} className="btn btn-outline-green mx-3">
+                <button
+                  onClick={logOut}
+                  className="border-2 border-lime-600 text-lime-600 text-md py-2 px-4 rounded-sm font-semibold cursor-pointer hover:bg-lime-600 hover:text-white transition-all duration-300">
                   Logout
                 </button>
               ) : (
-                <button onClick={login} className="btn btn-outline-green mx-3">
+                <button
+                  onClick={login}
+                  className="border-2 border-lime-600 text-lime-600 text-md py-2 px-4 rounded-sm font-semibold cursor-pointer hover:bg-lime-600 hover:text-white transition-all duration-300">
                   Connect Metamask Wallet
                 </button>
               )}
@@ -286,227 +289,166 @@ const Launchpad = () => {
           </div>
         </div>
       </nav>
-
-      <section>
-        <div className="container width-styling section-box">
-          <h1 className="text-white text-center display-4 fw-bold">
-            <span style={{ color: "#0288D4" }}>A</span>4
-            <span style={{ color: "#EE2609" }}>R</span> Launchpad
+      <section className="px-4 md:px-0 md:max-w-screen-xl m-auto">
+        <article className="my-12 text-center">
+          <h1 className="font-bold text-5xl text-red-600">
+            Manav Rachna <span className="text-green-600">Coin</span>
           </h1>
+        </article>
 
-          <section className="progress-bar bg-light-black">
-            <h2 className="text-white">
-              Phase 1: <span className="text-green">Ongoing</span>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="">
+            <div className="mb-8">
+              <h2 className="text-white text-3xl font-semibold mb-4">
+                INSTRUCTIONS
+              </h2>
+              <p className="text-gray text-lg">
+                We are currently supporting Metamask wallet. Ensure to create an
+                account or import an account on metamask wallet.
+              </p>
+            </div>
+
+            <div className="mb-8">
+              <h2 className="text-white text-3xl font-semibold mb-4">
+                A4R TOKEN TOKENOMICS
+              </h2>
+              <p className="text-gray text-lg">
+                Token Name - A4R Fitness Lifestyle Token <br />
+                Token Symbol - A4R <br />
+                Token Total Supply - 100,000,000,000 <br />
+                Available Token for Sell - 100,000,000 <br />
+                Current Price of A4R Token - 1A4R = $0.001 <br />
+                Token Network - BSC <br />
+                Token Distribution - After the end of token sale <br />
+                Token Distribution Cost - 10% of token price included <br />
+              </p>
+            </div>
+          </div>
+          <div className="bg-dark-gray p-8 mb-4">
+            <h2 className="text-white text-3xl font-semibold mb-4">
+              BUY A4R TOKENS
             </h2>
-            <h3 className="mb-5" style={{ fontSize: 20 }}>
-              Limited Sale / For first 10,000 buyers only
-            </h3>
 
-            <div className="row">
-              <div className="col-md-6 my-3">
-                <ul className="progress-top">
-                  <li></li>
-                  <li>Pre Sale</li>
-                  <li>Soft Cap</li>
-                  <li>Bonus</li>
-                  <li></li>
-                </ul>
+            <form onSubmit={submitTransfer} className="needs-validation">
+              <div className="mb-6">
+                <label htmlFor="amount" className="block text-md text-gray">
+                  Enter amount equivalent to USD($)
+                </label>
 
-                <ul className="progress-line-bars">
-                  <li></li>
-                  <li>|</li>
-                  <li>|</li>
-                  <li>|</li>
-                  <li></li>
-                </ul>
-
-                <div className="m-auto progress">
-                  <div className="progress-fill"></div>
-                </div>
-
-                {/* <div
-                  className="d-flex"
-                  style={{ justifyContent: "space-between", marginTop: 10 }}>
-                  <p className="text-white">Progress: 37%</p>
-                  <p className="text-white">Buyers: 3747</p>
-                </div> */}
+                <input
+                  type="number"
+                  name="amount"
+                  id="amount"
+                  className="mt-1 px-3 py-2 shadow-sm focus:outline-none focus:border-sky-100 focus:ring-sky-100 block w-full rounded-md sm:text-sm focus:ring-1 field-color"
+                  placeholder="Example: $100"
+                  required={true}
+                  max={10000}
+                  min={1}
+                  onChange={changeCoinData}
+                />
               </div>
-              <div className="col-md-6 my-3">
-                {/* <CountDown
-                  timeTillDate="08 30 2022, 6:00 am"
-                  timeFormat="MM DD YYYY, h:mm a"
-                /> */}
-              </div>
-            </div>
-          </section>
 
-          <div className="row ">
-            <div className="col-lg-6 my-3 px-4 py-3">
-              <div className="mb-3">
-                <h2 className="text-white">PROJECT INFORMATION</h2>
-                <p className="text-gray">
-                  A4R's mission is to bring the world of health and fitness and
-                  the Metaverse together by growing a community of like-minded
-                  individuals who value innovation and health.
+              <div className="mb-6">
+                <label htmlFor="chain" className="block text-md text-gray">
+                  Choose the chain of token to buy
+                </label>
+                <select
+                  name="chain"
+                  id="chain"
+                  className="mt-1 px-3 py-2 shadow-sm focus:outline-none focus:border-sky-100 focus:ring-sky-100 block w-full rounded-md sm:text-sm focus:ring-1 field-color"
+                  onChange={onChangeChainNet}
+                  required
+                  defaultValue="default">
+                  <option value="default" disabled>
+                    choose
+                  </option>
+                  <option value="binancecoin">
+                    Binance Chain (Buy using BNB)
+                  </option>
+                  <option value="ethereum">
+                    Etherum Chain (Buy using ETH)
+                  </option>
+                  <option value="matic-network">
+                    Polygon Chain (Buy using MATIC)
+                  </option>
+                </select>
+
+                <p className="text-gray my-3">
+                  <span className="font-semibold text-red-600">Note:</span>{" "}
+                  Ensure the Mainnet chosen in wallet(Metamask wallet only)
+                  matches with above dropdown Mainnet
                 </p>
-              </div>
+                {isAuthenticated ? (
+                  <>
+                    <p className="text-white m-0">Current Price of Coins:-</p>
+                    <div className="flex justify-between my-4">
+                      <p className=" text-white">BNB: ${chainPrice?.bnb}</p>
+                      <p className=" text-white">ETH: ${chainPrice?.eth}</p>
+                      <p className=" text-white">MATIC: ${chainPrice?.matic}</p>
+                    </div>
 
-              <div className="mb-3">
-                <h2 className="text-white">INSTRUCTIONS</h2>
-                <p className="text-gray">
-                  We are currently supporting Metamask wallet. Ensure to create
-                  an account on <a href="https://a4r.io/">a4r.io</a> and enter
-                  your wallet address
-                </p>
-              </div>
-
-              <div className="mb-3">
-                <h2 className="text-white">A4R TOKEN TOKENOMICS</h2>
-                <p className="text-gray">
-                  Token Name - A4R Fitness Lifestyle Token <br />
-                  Token Symbol - A4R <br />
-                  Token Total Supply - 100,000,000,000 <br />
-                  Available Token for Sell - 100,000,000 <br />
-                  Current Price of A4R Token - 1A4R = $0.001 <br />
-                  Token Network - BSC <br />
-                  Token Distribution - After the end of token sale <br />
-                  Token Distribution Cost - 10% of token price included <br />
-                </p>
-              </div>
-            </div>
-            <div className="col-lg-6 my-3 bg-dark-gray px-4 py-3">
-              <h2 className="text-white">BUY A4R TOKENS</h2>
-
-              <form onSubmit={submitTransfer} className="needs-validation">
-                <div className="mb-3">
-                  <label htmlFor="amount" className="text-gray">
-                    Enter amount equivalent to USD($)
-                  </label>
-                  <input
-                    type="number"
-                    name="amount"
-                    id="amount"
-                    className="form-control field-color"
-                    placeholder="Example: $100"
-                    required={true}
-                    max={10000}
-                    min={1}
-                    onChange={changeCoinData}
-                  />
-                </div>
-
-                <div className="mb-3">
-                  <label htmlFor="chain" className="text-gray">
-                    Choose the chain of token to buy
-                  </label>
-                  <select
-                    name="chain"
-                    id="chain"
-                    className="form-control field-color"
-                    onChange={onChangeChainNet}
-                    required
-                    defaultValue="default">
-                    <option value="default" disabled>
-                      choose
-                    </option>
-                    <option value="binancecoin">
-                      Binance Chain (Buy using BNB)
-                    </option>
-                    <option value="ethereum">
-                      Etherum Chain (Buy using ETH)
-                    </option>
-                    <option value="matic-network">
-                      Polygon Chain (Buy using MATIC)
-                    </option>
-                  </select>
-
-                  <p className="text-gray my-3">
-                    <span className="text-danger fw-bold">Note:</span> Ensure
-                    the Mainnet chosen in wallet(Metamask wallet only) matches
-                    with above dropdown Mainnet
-                  </p>
-                  {isAuthenticated ? (
-                    <>
-                      <p className="text-white m-0">Current Price of Coins:-</p>
-                      <div
-                        className="row"
-                        style={{
-                          justifyContent: "space-between",
-                        }}>
-                        <p className="col-md-4 text-white">
-                          BNB: ${chainPrice?.bnb}
-                        </p>
-                        <p className="col-md-4 text-white">
-                          ETH: ${chainPrice?.eth}
-                        </p>
-                        <p className="col-md-4 text-white">
-                          MATIC: ${chainPrice?.matic}
-                        </p>
-                      </div>
-
-                      <p className="text-white  m-0">
-                        Current balance in{" "}
-                        {selectChainName() ? selectChainName() : ""} Mainnet:
-                        {"  "}
-                        <span>
-                          {/* {coinData.userBalance ? (
+                    <p className="text-white ">
+                      Current balance in{" "}
+                      {selectChainName() ? selectChainName() : ""} Mainnet:
+                      {"  "}
+                      <span>
+                        {/* {coinData.userBalance ? (
                             coinData.userBalance
                           ) : (
                             <span className="text-danger">
                               chain not selected
                             </span>
                           )} */}
-                          {showCoinBalanceInCurrentChain()}
-                        </span>
-                      </p>
-                    </>
-                  ) : null}
-                </div>
+                        {showCoinBalanceInCurrentChain()}
+                      </span>
+                    </p>
+                  </>
+                ) : null}
+              </div>
 
-                <div className="mb-3 ">
-                  <label htmlFor="coin_price" className="text-gray">
-                    Number of {selectChainName() ? selectChainName() : "-"}{" "}
-                    tokens deduct from your wallet
-                  </label>
-                  <input
-                    type="text"
-                    name="coin_price"
-                    id="coin_price"
-                    className="form-control field-color"
-                    style={{ backgroundColor: "#272727" }}
-                    required={true}
-                    value={coinData?.chainName ? coinData?.coin_price : "-"}
-                    disabled
-                  />
-                </div>
+              <div className="mb-6 ">
+                <label htmlFor="coin_price" className="block text-md text-gray">
+                  Number of {selectChainName() ? selectChainName() : "-"} tokens
+                  deduct from your wallet
+                </label>
+                <input
+                  type="text"
+                  name="coin_price"
+                  id="coin_price"
+                  className="mt-1 px-3 py-2 shadow-sm focus:outline-none focus:border-sky-100 focus:ring-sky-100 block w-full rounded-md sm:text-sm focus:ring-1 field-color"
+                  style={{ backgroundColor: "#272727" }}
+                  required={true}
+                  value={coinData?.chainName ? coinData?.coin_price : "-"}
+                  disabled
+                />
+              </div>
 
-                <div className="mb-3">
-                  <label htmlFor="a4r_token" className="text-gray">
-                    A4R Token (1A4R = $0.001)
-                  </label>
-                  <input
-                    type="text"
-                    name="a4r_token"
-                    id="a4r_token"
-                    className="form-control field-color"
-                    style={{ backgroundColor: "#272727" }}
-                    required={true}
-                    value={coinData?.a4r_token}
-                    disabled
-                  />
-                </div>
+              <div className="mb-3">
+                <label htmlFor="a4r_token" className="block text-md text-gray">
+                  A4R Token (1A4R = $0.001)
+                </label>
+                <input
+                  type="text"
+                  name="a4r_token"
+                  id="a4r_token"
+                  className="mt-1 px-3 py-2 shadow-sm focus:outline-none focus:border-sky-100 focus:ring-sky-100 block w-full rounded-md sm:text-sm focus:ring-1 field-color"
+                  style={{ backgroundColor: "#272727" }}
+                  required={true}
+                  value={coinData?.a4r_token}
+                  disabled
+                />
+              </div>
 
-                <div className="mt-3">
-                  <input
-                    type="submit"
-                    name="submit"
-                    value={"Buy Token"}
-                    className="btn btn-outline-green btn-lg w-100"
-                    disabled={!isAuthenticated || isFetching}
-                  />
-                </div>
-              </form>
-            </div>
+              <div className="mt-3">
+                <input
+                  type="submit"
+                  name="submit"
+                  value={"Buy Token"}
+                  className="border-2 border-lime-600 text-lime-600 text-xl w-full py-3 rounded-sm font-semibold cursor-pointer hover:bg-lime-600 hover:text-white transition-all duration-300"
+                  disabled={!isAuthenticated || isFetching}
+                />
+              </div>
+            </form>
           </div>
         </div>
         {/* {error && (
@@ -519,12 +461,9 @@ const Launchpad = () => {
       {/* <Table address={coinData?.userAddress ? coinData?.userAddress : "0"} /> */}
 
       <div id="copyright">
-        <p className="m-0 p-0">Copyright © 2022 A4R. All rights reserved.</p>
-        <small>
-          <a href="https://a4r.io/disclaimer" className="text-white">
-            Disclaimer
-          </a>
-        </small>
+        <p className="m-0 p-0">
+          Copyright © 2022 MR Coin. All rights reserved.
+        </p>
       </div>
     </>
   );
