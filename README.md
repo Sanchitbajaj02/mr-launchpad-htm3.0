@@ -1,9 +1,39 @@
 # MR Launchpad
 
+## 💡 Theme: Blockchain
+
 ## 🔨 What it does
 
-## 💡 Application Workflow
+A Cryptocurrency launchpad where users can buy our token using Ethereum, BSC or Polygon chain. Users can track their transactions and see their token balance.
 
-## 🧩 How we are planning to build
+## 🧩How to Use
 
-## 🚀 What's next
+### 1. Clone the repository
+
+```bash
+git clone
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the Development Server
+
+```bash
+npm start
+```
+
+## ⚙️ Technologies Used:
+
+- HTML
+- CSS
+- React
+- Context
+- Web3
+- Solidity
+- Truffle
+- Metamask
+- Moralis
