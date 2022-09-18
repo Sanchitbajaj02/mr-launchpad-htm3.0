@@ -1,5 +1,10 @@
 # MR Launchpad
 
+### Team Members:
+- Sanchit Bajaj
+- Harsh Mittal
+- Kunal Arora
+
 ## 💡 Theme: Blockchain
 
 ## 🔨 What it does
