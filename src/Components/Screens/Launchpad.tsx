@@ -173,7 +173,7 @@ const Launchpad = () => {
   const dataOptions: any = {
     type: "native",
     amount: Moralis.Units.ETH(coinData.coin_price ? coinData.coin_price : 0),
-    receiver: process.env.REACT_APP_RECEIVER_ADDRESS_PROD,
+    receiver: process.env.REACT_APP_RECEIVER_ADDRESS_DEV,
   };
   const { fetch, error, isFetching } = useWeb3Transfer(dataOptions);
 
